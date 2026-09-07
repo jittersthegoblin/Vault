@@ -194,11 +194,11 @@ main { width: 100%; }
 .settler-layer { position: absolute; inset: 0; pointer-events: none; z-index: 8; }
 .settler-sprite {
   position: absolute;
-  width: clamp(38px, 5.4%, 86px);
+  width: clamp(44px, 6.2%, 98px);
   aspect-ratio: 1;
   object-fit: contain;
   transform: translate(-50%, -88%);
-  transition: left .8s ease-in-out, top .8s ease-in-out, opacity .2s ease;
+  transition: left 1.05s cubic-bezier(.22,.72,.25,1), top 1.05s cubic-bezier(.22,.72,.25,1), opacity .2s ease;
   filter: drop-shadow(0 5px 4px rgba(0,0,0,.38));
   pointer-events: auto;
   cursor: pointer;
@@ -206,7 +206,17 @@ main { width: 100%; }
 }
 .settler-sprite:hover { filter: drop-shadow(0 0 7px rgba(255,221,147,.8)); }
 .settler-sprite.selected { filter: drop-shadow(0 0 9px #f6c966); }
-.settler-sprite.sleeping { opacity: 0; pointer-events: none; }
+.settler-sprite.sleeping { opacity: 0; pointer-events: none; animation: none; }
+.settler-sprite.walking { animation: walkBob .34s ease-in-out infinite alternate; }
+.settler-sprite.social { animation: socialSway 1.7s ease-in-out infinite alternate; }
+@keyframes walkBob {
+  from { transform: translate(-50%, -88%) translateY(0); }
+  to { transform: translate(-50%, -88%) translateY(-3px); }
+}
+@keyframes socialSway {
+  from { transform: translate(-50%, -88%) rotate(-.5deg); }
+  to { transform: translate(-50%, -90%) rotate(.5deg); }
+}
 
 .dashboard {
   display: grid;
