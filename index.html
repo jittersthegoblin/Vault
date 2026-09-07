@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#20160f" />
+  <title>Underground Shelter — Prototype</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <header class="hud">
+    <div class="hud-title">
+      <strong>UNDERGROUND SHELTER</strong>
+      <span>prototype</span>
+    </div>
+    <div id="resources" class="resources" aria-label="Shelter resources"></div>
+    <div class="speed-control" aria-label="Simulation speed">
+      <button data-speed="1" class="speed active">1×</button>
+      <button data-speed="4" class="speed">4×</button>
+      <button data-speed="12" class="speed">12×</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro-strip">
+      <div>
+        <b>Day <span id="dayNumber">1</span></b>
+        <span id="clockText">08:00</span>
+      </div>
+      <p>Ten settlers found this forgotten shelter together. Nobody dies here — if someone is sick, hurt, hungry, or exhausted, they slow down and take care of themselves.</p>
+    </section>
+
+    <div class="world-scroll">
+      <section id="world" class="world" aria-label="Underground shelter cutaway">
+        <img class="world-bg" src="backgrounds/cozy_bunker_cutaway.png" alt="Ruined house above a deep underground dirt and rock cutaway" />
+        <div id="bunkerGrid" class="bunker-grid"></div>
+        <div id="settlerLayer" class="settler-layer"></div>
+        <div class="surface-note">THE OLD HOUSE · DISPLAY ONLY</div>
+      </section>
+    </div>
+
+    <section class="dashboard">
+      <article class="panel roster-panel">
+        <div class="panel-heading">
+          <div>
+            <h2>Settlers</h2>
+            <p>Click a settler to inspect their needs.</p>
+          </div>
+          <button id="resetGame" class="ghost danger">Reset prototype</button>
+        </div>
+        <div id="roster" class="roster"></div>
+      </article>
+
+      <article class="panel detail-panel">
+        <div id="detailContent">
+          <h2>Shelter controls</h2>
+          <p>Click a room, an empty excavation square, or a settler.</p>
+          <div class="tip-card">
+            <b>Cozy survival loop</b>
+            <span>Work uses energy. Meals help a little. Arcade time helps a little more. Proper sleep restores energy fastest and gently repairs health.</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel log-panel">
+        <div class="panel-heading">
+          <div>
+            <h2>Shelter log</h2>
+            <p>Quiet little updates from underground.</p>
+          </div>
+        </div>
+        <div id="eventLog" class="event-log"></div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    Prototype: needs are forgiving, shortages cause debuffs rather than death, and progress saves in this browser.
+  </footer>
+</body>
+</html>
